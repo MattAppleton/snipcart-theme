@@ -1,0 +1,180 @@
+// typography
+
+@font-face {
+  font-family: 'BReg';
+  src: url("../fonts/BasisGrotesquePro.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; 
+  }
+
+@font-face {
+  font-family: 'BItal';
+  src: url("../fonts/BasisGrotesquePro-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; 
+  }
+
+@font-face {
+  font-family: 'BMed';
+  src: url("../fonts/BasisGrotesquePro-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; 
+  }
+
+@font-face {
+  font-family: 'BMedItal';
+  src: url("../fonts/BasisGrotesquePro-MediumItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; 
+  }
+  
+/** main structure **/
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	/* Avoid the IE 10-11 `min-height` bug. */ }
+
+
+.column {
+	display:flex;
+}
+
+.blok {
+	flex: 1;
+	padding: $unit-4;
+	margin-bottom: $unit-4;
+//  border-radius: 10px;  if we wanted rounded corners
+  background-color: rgba(107, 232, 88, 0.55);  
+ }
+
+footer {
+  margin-top: auto;
+  padding: 30px 0;
+  flex-shrink: 0;
+  background-color: none;
+  /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */ }
+  
+footer.fixed {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+.page {
+	margin-bottom: 340px;
+	background-color: white;
+	z-index: 1;
+}
+  
+footer p, footer h3 {
+//	width:100% if we need to centre things in footer fkw
+}
+
+
+
+
+/** header **/
+
+
+.header-logo {
+	
+	width: 250px;
+	padding-left: 50px;
+	padding-top: 30px;
+	position: fixed;
+	z-index: 100;
+	//filter: invert(100%);	
+	
+	@include breakpoint(xs) {
+    display: none;
+  }	
+
+}
+
+
+.mobile-logo {
+	
+	display: none;
+	width: 165px;
+	padding: 30px 0 30px 0;
+	
+	@include breakpoint(xs) {
+    display: block;
+    }
+	
+}
+
+
+
+/** infoslider **/
+
+
+.slidemenu {
+  background-color: $dark-color;
+  color: white;
+  position: fixed;
+  opacity: 0.9;
+  right: 0;
+  top:  0;
+  z-index: 101;
+  padding: 90px;
+  width: 90%;
+  height: 100%;
+  transition: transform .75s ease;
+  transform: translateX(100%);
+  
+  @include breakpoint(md) {
+		
+  width: 100%;	
+    
+  }
+}
+
+.slidemenu.open {
+	transition: transform .75s ease;
+	transform: translateX(0%) 	
+}
+
+
+
+//  zoomer position
+
+.top {
+	
+	position: fixed;
+	top: 40px;
+	left: 50%;
+	transform: translate(-50%, 0);
+
+}
+
+.left {
+	
+	position: fixed;
+	top: 50%;
+	left: 40px;
+	transform-origin: 0 0;
+	transform: rotate(-90deg) translate(-50%, 0);
+}
+
+.right {
+	
+	position: fixed;
+	top: 50%;
+	right: 40px;
+	transform-origin: 100% 0;
+	transform: rotate(90deg) translate(50%, 0);
+}
+
+
+.bottom {
+	
+	position: fixed;
+	bottom: 40px;
+	left: 50%;
+	transform:  translate(-50%, 0);
+}
